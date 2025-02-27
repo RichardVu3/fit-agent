@@ -16,7 +16,9 @@ async def main():
         print(f"Start Date: {args.startdate}")
         print(f"End Date: {args.enddate}")
 
-    agent = FitAgent()
+    agent = FitAgent(
+        strategy="general"
+    )
     await agent.run(
         arguments={
             "type": args.type,
