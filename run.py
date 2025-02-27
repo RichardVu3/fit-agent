@@ -1,3 +1,6 @@
+# Make this standard
+# Build an automatic run for evaluation by LLM-as-a-judge
+
 from agent import FitAgent
 from utils import parse_arguments
 import asyncio
