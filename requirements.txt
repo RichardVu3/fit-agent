@@ -1,0 +1,8 @@
+openai
+langchain
+langchain_core
+pydantic
+asyncio
+langgraph
+langchain_openai
+langchain-ollama
