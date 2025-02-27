@@ -42,8 +42,12 @@ class RetrievalTool(BaseTool):
                 now = datetime.now(pytz.utc)
                 time_days_ago = now - timedelta(days=most_recent_value)
                 if date >= time_days_ago:
-                    data_input += f"Data Type: {record.get("type")}, Date of data: {record.get("startDate")}, Data value: {record.get("value")}. "
-        prompt_input = f"Please give me a description on the data type {data_type}. I will give you the data of most recent {most_recent_value} days. The data is: " + data_input
+                    data_input += f'Data Type: {record.get('type')}, Date of data: {record.get('startDate')}, Data value: {record.get('value')}.|'
+        prompt_input = (f"Analyze the following dataset for the data type '{data_type}'. "
+                f"The data spans the last {most_recent_value} days. "
+                "Provide a concise summary, key trends, and any notable patterns. "
+                "Data entries are formatted as 'Type, Date, Value'. "
+                f"Here is the data: {data_input}")
         response = self.llm.invoke(prompt_input)
         return prompt_input
 
