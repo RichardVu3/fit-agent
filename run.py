@@ -4,6 +4,7 @@
 from agent import FitAgent
 from utils import parse_arguments
 import asyncio
+from langchain_community.llms import Ollama
 
 VERBOSE = True
 
@@ -19,7 +20,7 @@ async def main():
     agent = FitAgent(
         strategy="general"
     )
-    await agent.run(
+    response = agent.run(
         arguments={
             "type": args.type,
             "value": args.value,
@@ -28,6 +29,12 @@ async def main():
             "enddate": args.enddate
         }
     )
+    llm_judge = Ollama(model=args.judge_name)
+    prompt_input = f"You are a LLM judge for our agent and you are able to judge the output of the health agent. The health agent should generate good response based on our data input. \
+    Please fairly evaluate its agent's output based on the data I will give to you and rate it from 0 to 10. 0 means the agent gives a totally wrong response and 10 means the agent gives a totally correct response."
+    response = llm.invoke(prompt_input)
+    print(response)
+
 
 
 if __name__ == "__main__":
