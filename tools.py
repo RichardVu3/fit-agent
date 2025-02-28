@@ -1,14 +1,14 @@
 from langchain_ollama.llms import OllamaLLM
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta
-import pytz
+import os
 import pandas as pd
 
 
 def read_xml_data(
     file_path: str = "./export.xml"
 ) -> pd.DataFrame:
-    # record_data = pd.read_csv("record_data.csv")
+    if os.getenv("ENV", "dev").lower() == "prod":
+        return pd.read_csv("record_data.csv")
     tree = ET.parse(file_path)
     root = tree.getroot()
     record_list = [x.attrib for x in root.iter('Record')]
@@ -39,43 +39,5 @@ class RetrievalTool:
         self,
         data_type: str,
         most_recent_value: int,
-        describe: bool = False,
-        stream: bool = True
     ) -> str:
-        records = self.record_data[self.record_data["type"] == data_type].sort_values(by=["endDate"], ascending=[False]).head(most_recent_value).to_markdown()
-
-        # if describe:
-        #     prompt_input = (f"Analyze the following dataset for the data type '{data_type}'. "
-        #         f"The data spans the last {most_recent_value} days. "
-        #         "Provide a concise summary, key trends, and any notable patterns. "
-        #         "Data entries are formatted as 'Type, Date, Value'. "
-        #         f"Here is the data: {data_input}")
-        
-        #     if stream:
-        #         response = ""
-        #         for chunk in self.llm.stream(prompt_input):
-        #             response += chunk
-        #             print(chunk, end="", flush=True)
-        #         print()
-        #     else:
-        #         response = self.llm.invoke(prompt_input)
-        #     return response
-        
-        return records
-
-
-if __name__ == "__main__":
-    from utils import get_llm
-    tool = RetrievalTool(
-        llm=get_llm(),
-        file_path="./export.xml"
-    )
-
-    data = tool._run(
-        data_type="SleepDuration",
-        most_recent_value=14,
-        describe=False,
-        stream=False
-    )
-
-    print(data)
+        return self.record_data[self.record_data["type"] == data_type].sort_values(by=["endDate"], ascending=[False]).head(most_recent_value).to_markdown()
