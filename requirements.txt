@@ -6,3 +6,5 @@ asyncio
 langgraph
 langchain_openai
 langchain-ollama
+tabulate
+python-dotenv
