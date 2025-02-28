@@ -1,13 +1,13 @@
 from langchain_ollama.llms import OllamaLLM
 import xml.etree.ElementTree as ET
-import os
 import pandas as pd
+from config import ENV
 
 
 def read_xml_data(
     file_path: str = "./export.xml"
 ) -> pd.DataFrame:
-    if os.getenv("ENV", "dev").lower() == "prod":
+    if ENV.lower() == "prod":
         return pd.read_csv("record_data.csv")
     tree = ET.parse(file_path)
     root = tree.getroot()

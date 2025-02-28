@@ -2,12 +2,9 @@ from agent import FitAgent
 from utils import parse_arguments
 import asyncio
 from langchain_ollama.llms import OllamaLLM
-from dotenv import load_dotenv
-import os
+from config import ENV
 
-load_dotenv()
-
-VERBOSE = os.getenv("ENV", "dev") == "dev"
+VERBOSE = ENV == "dev"
 
 def main():
     args = parse_arguments()
@@ -21,7 +18,7 @@ def main():
 
     agent = FitAgent(
         strategy="general",
-        stream=(os.getenv("ENV", "dev") == "dev")
+        stream=(ENV == "dev")
     )
     response = asyncio.run(
         agent.run(
@@ -34,7 +31,7 @@ def main():
             }
         )
     )
-    if os.getenv("ENV", "dev") == "prod":
+    if ENV == "prod":
         print(response)
 
 def judge_response(judge_name, response_from_agent):

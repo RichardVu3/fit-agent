@@ -14,7 +14,7 @@ today_date = datetime.today().strftime('%Y-%m-%d')
 
 
 class Data(BaseModel):
-    type: str = Field(..., description=f"The type of data, must be exactly one of {ALL_DATA_TYPES}")
+    type: str = Field(..., description=f"The type of data, must be exactly one of {ALL_DATA_TYPES.keys()}")
     value: int = Field(..., description="The value of the data, e.g. 120, 8 hours, etc.")
     unit: str = Field(..., description="The unit of the data, e.g. rate/min, hours, etc.")
     start_date: str = Field(..., description="The date of the data, e.g. 2024-01-04")
@@ -26,7 +26,7 @@ class Data(BaseModel):
 
 
 class RetrievalStep(BaseModel):
-    type: str = Field(..., description=f"The type of data to retrieve. Must be exactly one of {ALL_DATA_TYPES}")
+    type: str = Field(..., description=f"The type of data to retrieve. Must be exactly one of {ALL_DATA_TYPES.keys()}")
     range: int = Field(..., description="The latest number of records to retrieve, e.g. 100, 14, etc.")
 
 
@@ -114,7 +114,7 @@ You are an expert in medical AI tasked with retrieving relevant historical healt
 2. Identify the necessary historical data:
 - Select which types of historical data would provide meaningful context for analysis (e.g., past heart rate trends, previous sleep records, weight history, etc.). Retrieve as many data types as needed. A lot of data is critical for a comprehensive analysis about the user's overall health status.
 - Consider whether the data type requires continuous tracking over multiple days (e.g., heart rate, sleep) or if the latest recorded value is sufficient (e.g., height, weight).
-- Note that the data type must be exactly as in this list: """ + str(ALL_DATA_TYPES) + """.
+- Note that the data type must be exactly as in this list: """ + str(list(ALL_DATA_TYPES.keys())) + """.
 3. Determine the appropriate retrieval range:
 - Define a suitable time window for historical data retrieval based on medical reasoning.
 - For time-series data (e.g. heart rate, sleep, vitals): Suggest a historical period that provides useful trend insights (e.g., past 14 days of sleep records, last 200 heart rate measurements).
