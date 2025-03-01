@@ -51,9 +51,9 @@ class FitAgentGraph:
     ):
         self.strategy: str = strategy
         # TODO: find a way to pass the LLM models
-        self.describe_llm: OllamaLLM = get_llm(model="medllama2", temperature=0.0)
-        self.plan_llm: OllamaLLM = get_llm(model="llama3", temperature=0.3)
-        self.insights_llm: OllamaLLM = get_llm(model="llama3.2:1b", temperature=0.3)
+        self.describe_llm: OllamaLLM = get_llm(model="medllama2", temperature=0.0) # medllama2
+        self.plan_llm: OllamaLLM = get_llm(model="llama3.2:3b", temperature=0.5) # llama3
+        self.insights_llm: OllamaLLM = get_llm(model="llama3.2:3b", temperature=0.5)
         self.stream = stream
         self.tool = RetrievalTool(
             llm=self.insights_llm,
@@ -106,13 +106,16 @@ Now, describe in details the incoming data: {incoming_data}
         self,
         state: FitAgentState,
     ):
-        parser = PydanticOutputParser(pydantic_object=RetrievalPlan)
+        if self.stream:
+            print(f"Making a retrieval plan:\n")
+        parser = PydanticOutputParser(pydantic_object=RetrievalPlan, )
         template: str = f"""
-You are an expert in medical AI tasked with retrieving relevant historical health data to enhance contextual analysis. Your goal is to formulate a retrieval plan that will complement the incoming data to provide deeper insights. Follow these structured steps:
+You are an expert in medical AI tasked with retrieving relevant historical health data to enhance contextual analysis. Your goal is to formulate a retrieval plan that will complement the incoming data to provide deeper insights. The retrieval plan is a list of steps that outline the data types to retrieve and the historical range to consider. This will help set the background for analyzing the incoming health data.
+Follow these structured steps:
 1. Understand the incoming data description:
 - Carefully review the provided health data (type, value, unit, timestamp) based on the incoming data description.
 2. Identify the necessary historical data:
-- Using the measurement type description below to select as many types of historical data as needed to provide meaningful context for analysis (e.g., past heart rate trends, previous sleep records, weight history, etc.). A lot of data is critical for a comprehensive analysis about the user's overall health status.
+- Using the measurement type description below to select as much historical data as needed to provide meaningful context for analysis (e.g., past heart rate trends, previous sleep records, weight history, etc.). A lot of data is critical for a comprehensive analysis about the user's overall health status.
 Measurement Types Description: {"; ".join([f"{k}: {v}" for k, v in ALL_DATA_TYPES.items()])}
 - Consider whether the data type requires continuous tracking over multiple days (e.g., heart rate, sleep) or if the latest recorded value is sufficient (e.g., height, weight).
 - Note that the data type must be exactly as in this list: """ + str(list(ALL_DATA_TYPES.keys())) + """.
@@ -130,7 +133,7 @@ Measurement Types Description: {"; ".join([f"{k}: {v}" for k, v in ALL_DATA_TYPE
 - Be consise, straight to the point and informative without unnecessary elaboration. User only cares about the plan and not the details or explanation.
 
 -----------------------------------------------------------
-Here is how to structure the output: {format_instructions}
+The format of the output must follow these rules: {format_instructions}
 
 -----------------------------------------------------------
 Now, make a plan to retrieve the data to contextualize the incoming data:
@@ -147,7 +150,6 @@ Now, make a plan to retrieve the data to contextualize the incoming data:
         )
 
         if self.stream:
-            print(f"Making a retrieval plan:\n")
             for step in response.plan:
                 print(step)
             print(f"\n---\n")
@@ -160,14 +162,14 @@ Now, make a plan to retrieve the data to contextualize the incoming data:
     ):
         outputs = []
         for step in state["retrieval_plan"]:
-            if self.stream:
-                print(f"---Retrieving: {step}---")
+            # if self.stream:
+            #     print(f"---Retrieving: {step}---")
             tool_output = self.tool._run(step.type, step.range)
             outputs.append(
                 tool_output
             )
-        if self.stream:
-            print(f"\n---\n")
+        # if self.stream:
+        #     print(f"\n---\n")
         return {"retrieved_data": "\n------------------------------\n".join(outputs)}
     
     async def generating_insights(
@@ -194,7 +196,7 @@ Your analysis must be medically accurate, factual, and safe. Your tasks include 
 - Avoid speculative or misleading statements.
 - Do not diagnose or provide medical treatment plans—only insights and general health guidance.
 
-**Response Structure**: your response should at least include:
+**Response Structure**: your response should **at least** include:
 - A thorough analysis of the historical data to set the background and benchmark of the user's health status. You must give numerical evidence for your analysis. Do not hallucinate or assume anything about the user's health status.
 - Comparison of the incoming data with historical records and detect any trends of anomaly
 - The correlation and insights of the data

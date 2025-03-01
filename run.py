@@ -48,4 +48,9 @@ if __name__ == "__main__":
     main()
 
 
-# python run.py --type heart-rate --value 200 --unit rate/min --startdate 2025-02-28 --enddate 2025-02-28 --judge_name deepseek-r1
+
+# python run.py --type heart-rate --value 200 --unit rate/min --startdate 2025-02-28 --enddate 2025-02-28
+# python run.py --type oxygen-saturation --value 92 --unit percent --startdate 2025-02-28 --enddate 2025-02-28
+# python run.py --type respiratory-rate --value 25 --unit breaths/min --startdate 2025-02-28 --enddate 2025-02-28
+# python run.py --type heart-rate-variability-sdnn --value 20 --unit ms --startdate 2025-02-28 --enddate 2025-02-28
+# python run.py --type apple-sleeping-breathing-disturbances --value 5 --unit events/hour --startdate 2025-02-28 --enddate 2025-02-28
