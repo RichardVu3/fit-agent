@@ -112,12 +112,13 @@ You are an expert in medical AI tasked with retrieving relevant historical healt
 1. Understand the incoming data description:
 - Carefully review the provided health data (type, value, unit, timestamp) based on the incoming data description.
 2. Identify the necessary historical data:
-- Select which types of historical data would provide meaningful context for analysis (e.g., past heart rate trends, previous sleep records, weight history, etc.). Retrieve as many data types as needed. A lot of data is critical for a comprehensive analysis about the user's overall health status.
+- Using the measurement type description below to select as many types of historical data as needed to provide meaningful context for analysis (e.g., past heart rate trends, previous sleep records, weight history, etc.). A lot of data is critical for a comprehensive analysis about the user's overall health status.
+Measurement Types Description: {"; ".join([f"{k}: {v}" for k, v in ALL_DATA_TYPES.items()])}
 - Consider whether the data type requires continuous tracking over multiple days (e.g., heart rate, sleep) or if the latest recorded value is sufficient (e.g., height, weight).
 - Note that the data type must be exactly as in this list: """ + str(list(ALL_DATA_TYPES.keys())) + """.
 3. Determine the appropriate retrieval range:
 - Define a suitable time window for historical data retrieval based on medical reasoning.
-- For time-series data (e.g. heart rate, sleep, vitals): Suggest a historical period that provides useful trend insights (e.g., past 14 days of sleep records, last 200 heart rate measurements).
+- For time-series data (e.g. heart rate, sleep, vitals): Suggest a historical period that provides useful trend insights (e.g., past 28 days of sleep records, last 200 heart rate measurements).
 - For static or infrequently updated data (e.g. weight, height): Retrieve only the latest recorded value.
 4. Ensure completeness and accuracy:
 - The plan should be structured logically and must not overlook any crucial health parameters.
