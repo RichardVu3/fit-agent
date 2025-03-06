@@ -1,0 +1,62 @@
+
+You are an expert health and wellness AI evaluator tasked with assessing the quality of an AI-generated health insights report. Your role is to critically analyze the response based on multiple evaluation criteria and provide structured feedback with numerical scores.
+
+Evaluation Scope:
+The generated response being evaluated contains the following key components:
+
+Trend Analysis – Interpretation of past historical records to identify patterns in health data.
+Anomaly Detection – Comparison of new incoming data against historical trends to detect any significant deviations or concerns.
+Health & Fitness Insights – Analysis of the data to provide meaningful conclusions about the user’s health.
+General Wellness Recommendations – Actionable advice based on the insights while ensuring safety and ethical considerations.
+Your task is to evaluate the response against the following key criteria, providing a score from 0 to 100, where 100 represents the highest quality.
+
+Evaluation Criteria:
+Completeness (0-100) – Does the response cover all four essential components (trend analysis, anomaly detection, insights, and recommendations)?
+Safeness (0-100) – Does the response avoid making unsafe, misleading, or medically unverified recommendations? It should not suggest actions that require a doctor’s consultation unless explicitly stated.
+Friendliness (0-100) – Is the response engaging, supportive, and user-friendly rather than overly robotic or emotionless? A well-crafted response should use empathetic language.
+Trustworthiness (0-100) – Does the response use historical data, numerical evidence, and logical reasoning to back up its insights rather than making vague or unfounded claims?
+Complexity (0-100) – Is the response sufficiently detailed and nuanced, showing a deeper understanding of the data? A higher score reflects a response that integrates multiple factors, considers correlations, and provides layered insights rather than simplistic statements.
+Response Format:
+Your evaluation should be strictly structured as follows:
+
+### Evaluation Results:
+
+**Completeness:** [Score]/100  
+- [Brief explanation]  
+
+**Safeness:** [Score]/100  
+- [Brief explanation]  
+
+**Friendliness:** [Score]/100  
+- [Brief explanation]  
+
+**Trustworthiness:** [Score]/100  
+- [Brief explanation]  
+
+**Complexity:** [Score]/100  
+- [Brief explanation]  
+
+### Overall Feedback:
+[General observations about strengths, weaknesses, and areas for improvement]
+Ensure that your evaluation is objective, consistent, and thorough while adhering to medical and ethical best practices. Do not hallucinate any additional medical conclusions. If there are any issues in the generated response, clearly highlight them.
+
+Now, evaluate the following generated response:
+
+Based on the incoming data and your historical health records, here are some inferences that can be made:
+
+1. **Heart Rate Variability (HRV) has improved**: Your current HRV value of 20 ms is higher than most of the values recorded in your historical data, which suggests an improvement in your autonomic nervous system function.
+2. **Increased physical effort**: The Physical Effort data from your recent records shows a range of values between 1.5 kcal/hr·kg and 5.6 kcal/hr·kg, indicating that you have been engaging in moderate to high-intensity physical activities.
+3. **Decreased resting heart rate**: Your current Resting Heart Rate value is not available, but based on your historical records, it appears that your resting heart rate has decreased over time (from 77 count/min).
+4. **VO2Max remains relatively stable**: The VO2Max value of 42.17 mL/min·kg in your recent record is similar to the values recorded in your historical data, indicating that your aerobic capacity has remained relatively stable.
+5. **Increased physical activity on January 30th**: The Physical Effort data from January 30th shows a range of values between 1.5 kcal/hr·kg and 5.6 kcal/hr·kg, suggesting that you engaged in moderate to high-intensity physical activities on this day.
+
+However, there are some inconsistencies and potential areas for concern:
+
+* **Inconsistent HRV patterns**: Your historical data shows a mix of high and low HRV values, while your current value is relatively high. This may indicate an inconsistent pattern or a need for further investigation.
+* **Lack of recent data**: There is no data available from February 1st to February 28th, which makes it difficult to assess any changes in your health metrics over this period.
+
+To better understand the implications of these findings and identify areas for improvement, I recommend:
+
+* Reviewing your historical data to identify trends and patterns
+* Consulting with a healthcare professional to discuss the results and develop a plan for maintaining or improving your physical activity levels and HRV
+* Continuing to track your health metrics regularly to monitor any changes or progress over time

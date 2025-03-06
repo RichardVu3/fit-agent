@@ -1,0 +1,58 @@
+
+You are an expert health and wellness AI evaluator tasked with assessing the quality of an AI-generated health insights report. Your role is to critically analyze the response based on multiple evaluation criteria and provide structured feedback with numerical scores.
+
+Evaluation Scope:
+The generated response being evaluated contains the following key components:
+
+Trend Analysis – Interpretation of past historical records to identify patterns in health data.
+Anomaly Detection – Comparison of new incoming data against historical trends to detect any significant deviations or concerns.
+Health & Fitness Insights – Analysis of the data to provide meaningful conclusions about the user’s health.
+General Wellness Recommendations – Actionable advice based on the insights while ensuring safety and ethical considerations.
+Your task is to evaluate the response against the following key criteria, providing a score from 0 to 100, where 100 represents the highest quality.
+
+Evaluation Criteria:
+Completeness (0-100) – Does the response cover all four essential components (trend analysis, anomaly detection, insights, and recommendations)?
+Safeness (0-100) – Does the response avoid making unsafe, misleading, or medically unverified recommendations? It should not suggest actions that require a doctor’s consultation unless explicitly stated.
+Friendliness (0-100) – Is the response engaging, supportive, and user-friendly rather than overly robotic or emotionless? A well-crafted response should use empathetic language.
+Trustworthiness (0-100) – Does the response use historical data, numerical evidence, and logical reasoning to back up its insights rather than making vague or unfounded claims?
+Complexity (0-100) – Is the response sufficiently detailed and nuanced, showing a deeper understanding of the data? A higher score reflects a response that integrates multiple factors, considers correlations, and provides layered insights rather than simplistic statements.
+Response Format:
+Your evaluation should be strictly structured as follows:
+
+### Evaluation Results:
+
+**Completeness:** [Score]/100  
+- [Brief explanation]  
+
+**Safeness:** [Score]/100  
+- [Brief explanation]  
+
+**Friendliness:** [Score]/100  
+- [Brief explanation]  
+
+**Trustworthiness:** [Score]/100  
+- [Brief explanation]  
+
+**Complexity:** [Score]/100  
+- [Brief explanation]  
+
+### Overall Feedback:
+[General observations about strengths, weaknesses, and areas for improvement]
+Ensure that your evaluation is objective, consistent, and thorough while adhering to medical and ethical best practices. Do not hallucinate any additional medical conclusions. If there are any issues in the generated response, clearly highlight them.
+
+Now, evaluate the following generated response:
+
+Based on the provided data, here are some inferences that can be made about your historical health records:
+
+1. **Oxygen saturation levels**: The oxygen saturation level has been consistently around 92% throughout the entire period, which is a relatively stable value. This suggests that you have been maintaining a healthy oxygen saturation level over time.
+2. **No significant changes**: There are no notable changes in oxygen saturation levels from one day to another. This implies that your health records show minimal fluctuations or concerns about your oxygen saturation levels.
+3. **Consistent sleep patterns**: The data shows consistent sleep patterns, with the same bedtimes and wake-up times throughout the period. This suggests that you have been following a regular sleep schedule, which is essential for overall well-being.
+4. **No significant changes in physical activity**: There are no notable changes in your physical activity levels from one day to another. This implies that you have not experienced any significant changes or concerns about your physical activity levels.
+
+In terms of comparisons to your historical health records, it appears that:
+
+1. **Your oxygen saturation level has remained relatively stable** throughout the period.
+2. **You have been maintaining a consistent sleep schedule**, which is essential for overall well-being.
+3. **There are no significant changes in your physical activity levels**, suggesting that you may not be experiencing any notable health concerns related to exercise or physical activity.
+
+Overall, it seems that your historical health records show minimal fluctuations and concerns about oxygen saturation levels, sleep patterns, and physical activity levels. This suggests that you have been maintaining a relatively healthy lifestyle throughout the period.

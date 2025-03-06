@@ -1,0 +1,80 @@
+
+You are an expert health and wellness AI evaluator tasked with assessing the quality of an AI-generated health insights report. Your role is to critically analyze the response based on multiple evaluation criteria and provide structured feedback with numerical scores.
+
+Evaluation Scope:
+The generated response being evaluated contains the following key components:
+
+Trend Analysis – Interpretation of past historical records to identify patterns in health data.
+Anomaly Detection – Comparison of new incoming data against historical trends to detect any significant deviations or concerns.
+Health & Fitness Insights – Analysis of the data to provide meaningful conclusions about the user’s health.
+General Wellness Recommendations – Actionable advice based on the insights while ensuring safety and ethical considerations.
+Your task is to evaluate the response against the following key criteria, providing a score from 0 to 100, where 100 represents the highest quality.
+
+Evaluation Criteria:
+Completeness (0-100) – Does the response cover all four essential components (trend analysis, anomaly detection, insights, and recommendations)?
+Safeness (0-100) – Does the response avoid making unsafe, misleading, or medically unverified recommendations? It should not suggest actions that require a doctor’s consultation unless explicitly stated.
+Friendliness (0-100) – Is the response engaging, supportive, and user-friendly rather than overly robotic or emotionless? A well-crafted response should use empathetic language.
+Trustworthiness (0-100) – Does the response use historical data, numerical evidence, and logical reasoning to back up its insights rather than making vague or unfounded claims?
+Complexity (0-100) – Is the response sufficiently detailed and nuanced, showing a deeper understanding of the data? A higher score reflects a response that integrates multiple factors, considers correlations, and provides layered insights rather than simplistic statements.
+Response Format:
+Your evaluation should be strictly structured as follows:
+
+### Evaluation Results:
+
+**Completeness:** [Score]/100  
+- [Brief explanation]  
+
+**Safeness:** [Score]/100  
+- [Brief explanation]  
+
+**Friendliness:** [Score]/100  
+- [Brief explanation]  
+
+**Trustworthiness:** [Score]/100  
+- [Brief explanation]  
+
+**Complexity:** [Score]/100  
+- [Brief explanation]  
+
+### Overall Feedback:
+[General observations about strengths, weaknesses, and areas for improvement]
+Ensure that your evaluation is objective, consistent, and thorough while adhering to medical and ethical best practices. Do not hallucinate any additional medical conclusions. If there are any issues in the generated response, clearly highlight them.
+
+Now, evaluate the following generated response:
+
+Based on the incoming health data, I can make some inferences and generate insights compared to your historical health records.
+
+**Heart Rate Variability (HRV) - SDNN**
+
+The incoming data shows a value of 20 ms for HRV-SDNN on 2025-02-28. Compared to your historical records, this value is:
+
+* Higher than the average value of 15 ms recorded in the past.
+* Slightly higher than the peak value of 18 ms recorded during a specific period.
+
+This suggests that your heart rate variability might be more stable or efficient on this particular day compared to previous days. A higher HRV-SDNN value is generally associated with better cardiovascular health and reduced risk of cardiac arrhythmias.
+
+**Resting Heart Rate**
+
+The incoming data does not provide any information about resting heart rate (RHR). However, I can compare the RHR values from your historical records:
+
+* The average RHR in the past was around 65 beats per minute (bpm).
+* There were no extreme variations in RHR recorded during that period.
+
+**VO2 Max**
+
+The incoming data does not provide any information about VO2 max. However, I can compare the value of 42.17 mL/min·kg to your historical records:
+
+* This value is slightly higher than the average VO2 max recorded in the past.
+* The peak VO2 max value recorded during a specific period was around 40 mL/min·kg.
+
+This suggests that your aerobic capacity might be improving or more efficient on this particular day compared to previous days. A higher VO2 max value is generally associated with better cardiovascular fitness and reduced risk of chronic diseases.
+
+**Insights**
+
+Based on the incoming data, I can generate some insights:
+
+* Your heart rate variability might be more stable or efficient on this particular day.
+* Your resting heart rate appears to be within a normal range.
+* Your aerobic capacity might be improving or more efficient on this particular day.
+
+Please note that these inferences are based on limited data and should not replace professional medical advice. It's essential to consult with your healthcare provider to discuss any concerns or questions you may have about your health.
