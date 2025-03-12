@@ -27,7 +27,7 @@ FitAgent is an AI-powered assistant designed to interpret wearable health data, 
    ```
 2. Run the agent:
    ```bash
-   python fitagent.py
+   python run.py --type heart-rate --value 200 --unit rate/min --startdate 2025-02-28 --enddate 2025-02-28
    ```
 3. The system will parse the Apple Health data, process it using the AI framework, and provide insights based on detected trends and anomalies.
 
